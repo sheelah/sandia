@@ -2,3 +2,7 @@
 node_modules
 .sass-cache
 .idea
+style.css.map
+editor-style.css.map
+app_config.json
+nbproject

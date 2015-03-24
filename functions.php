@@ -105,6 +105,9 @@ function child_theme_setup() {
 	define ( 'DISALLOW_FILE_EDIT', true );
 
 	// Set Content Width
+	// The 3 numbers correspond to content width of the default, small and large layouts.
+    // The default layout refers to 2-column layouts; small refers to 3-column layouts
+    // and large refers to the full-width content layout.
 	$content_width = apply_filters( 'content_width', 740, 740, 1140 );
 
 	// Add support for custom background

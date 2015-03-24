@@ -1,8 +1,14 @@
 'use strict';
 module.exports = function(grunt) {
 
+    // Load JSON config
+    var appConfig = grunt.file.readJSON('app_config.json');
+
     // load all grunt tasks matching the `grunt-*` pattern
     require('load-grunt-tasks')(grunt);
+
+    // Show elapsed time
+    require('time-grunt')(grunt);
 
     grunt.initConfig({
 
@@ -10,7 +16,7 @@ module.exports = function(grunt) {
         watch: {
             sass: {
                 files: ['assets/styles/**/*.{scss,sass}'],
-                tasks: ['sass', 'autoprefixer', 'cssmin']
+                tasks: ['sass:dev', 'autoprefixer']
             },
             js: {
                 files: '<%= jshint.all %>',
@@ -24,13 +30,26 @@ module.exports = function(grunt) {
 
         // sass
         sass: {
+		    options: {
+			    sourceMap: true,
+			    sourceMapContents:true
+			},
             dist: {
                 options: {
-                    style: 'expanded',
+                    outputstyle: 'compressed',
                 },
                 files: {
-                    'assets/styles/build/style.css': 'assets/styles/style.scss',
-                    'assets/styles/build/editor-style.css': 'assets/styles/editor-style.scss'
+                    'style.css': 'assets/styles/style.scss',
+                    'editor-style.css': 'assets/styles/editor-style.scss'
+                }
+            },
+            dev: {
+                options: {
+                    outputstyle: 'expanded',
+                },
+                files: {
+                    'style.css': 'assets/styles/style.scss',
+                    'editor-style.css': 'assets/styles/editor-style.scss'
                 }
             }
         },
@@ -44,34 +63,38 @@ module.exports = function(grunt) {
             files: {
                 expand: true,
                 flatten: true,
-                src: 'assets/styles/build/*.css',
-                dest: 'assets/styles/build'
+				cwd: '.',
+                src: '*.css',
+                dest: '.'
             },
-        },
-
-        // css minify
-        cssmin: {
-            options: {
-                keepSpecialComments: 1
-            },
-            minify: {
-                expand: true,
-                cwd: 'assets/styles/build',
-                src: ['*.css', '!*.min.css'],
-                ext: '.css'
-            }
         },
 
         // javascript linting with jshint
         jshint: {
-            options: {
-                jshintrc: '.jshintrc',
-                "force": true
-            },
-            all: [
-                'Gruntfile.js',
-                'assets/js/source/**/*.js'
-            ]
+		    options: {
+			    reporter: require('jshint-stylish')
+			},
+		    js: {
+                options: {
+                    curly: true,
+                    eqeqeq: true,
+                    immed: true,
+                    latedef: true,
+                    newcap: true,
+                    noarg: true,
+                    sub: true,
+                    undef: true,
+                    unused: true,
+                    boss: true,
+                    eqnull: true,
+                    browser: true,
+                    globals: {
+                        jQuery: true,
+                        $: true,
+                    }
+				}
+			},
+            all: ['Gruntfile.js', 'assets/js/source/**/*.js'],
         },
 
         // uglify to concat, minify, and make source maps
@@ -126,44 +149,27 @@ module.exports = function(grunt) {
         browserSync: {
             dev: {
                 bsFiles: {
-                    src : ['style.css', 'assets/js/*.js', 'assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}']
+                    src : [
+					    'style.css',
+						'assets/js/*.js',
+						'assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+						'**/*.php'
+					],
                 },
                 options: {
-                    proxy: "local.dev",
-                    watchTask: true
+                    proxy: appConfig['proxy'],
+                    watchTask: true,
+					debugInfo: true,
+					logConnections: true,
+					notify: true
                 }
             }
         },
-
-        // deploy via rsync
-        deploy: {
-            options: {
-                src: "./",
-                args: ["--verbose"],
-                exclude: ['.git*', 'node_modules', '.sass-cache', 'Gruntfile.js', 'package.json', '.DS_Store', 'README.md', 'config.rb', '.jshintrc'],
-                recursive: true,
-                syncDestIgnoreExcl: true
-            },
-            staging: {
-                 options: {
-                    dest: "~/path/to/theme",
-                    host: "user@host.com"
-                }
-            },
-            production: {
-                options: {
-                    dest: "~/path/to/theme",
-                    host: "user@host.com"
-                }
-            }
-        }
-
     });
 
-    // rename tasks
-    grunt.renameTask('rsync', 'deploy');
-
-    // register task
-    grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'uglify', 'imagemin', 'browserSync', 'watch']);
-
+  // register task
+  grunt.registerTask('default', ['dev']);
+  grunt.registerTask('dev', ['uglify', 'browserSync', 'watch']);
+  grunt.registerTask('build', ['uglify', 'imagemin', 'sass:dist', 'autoprefixer']);
+  grunt.registerTask('lint', ['jshint']);
 };

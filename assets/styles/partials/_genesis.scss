@@ -88,9 +88,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 *,
 input[type="search"] {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing:    border-box;
-	box-sizing:         border-box;
+	box-sizing: border-box;
 }
 
 /* ## Float Clearing
@@ -157,11 +155,7 @@ input[type="submit"],
 textarea:focus,
 .button,
 .gallery img {
-	-webkit-transition: all 0.1s ease-in-out;
-	-moz-transition:    all 0.1s ease-in-out;
-	-ms-transition:     all 0.1s ease-in-out;
-	-o-transition:      all 0.1s ease-in-out;
-	transition:         all 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
 }
 
 ::-moz-selection {
@@ -965,18 +959,14 @@ img.alignright,
 .genesis-nav-menu a:hover,
 .genesis-nav-menu .current-menu-item > a,
 .genesis-nav-menu .sub-menu .current-menu-item > a:hover {
-	color: #e5554e;
+	color: darken($jet, 40%);
 }
 
 .genesis-nav-menu .sub-menu {
 	left: -9999px;
 	opacity: 0;
 	position: absolute;
-	-webkit-transition: opacity .4s ease-in-out;
-	-moz-transition:    opacity .4s ease-in-out;
-	-ms-transition:     opacity .4s ease-in-out;
-	-o-transition:      opacity .4s ease-in-out;
-	transition:         opacity .4s ease-in-out;
+	transition: opacity .4s ease-in-out;
 	width: 200px;
 	z-index: 99;
 }

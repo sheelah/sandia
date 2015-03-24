@@ -38,7 +38,7 @@ class Child_Theme_Settings extends Genesis_Admin_Boxes {
 		$menu_ops = array(
 			'submenu' => array(
 				'parent_slug' => 'genesis',
-				'page_title'  => 'Genesis - Child Theme Settings',
+				'page_title'  => 'Sandia - Theme Settings',
 				'menu_title'  => 'Child Theme Settings',
 			)
 		);
@@ -58,8 +58,8 @@ class Child_Theme_Settings extends Genesis_Admin_Boxes {
 
 		// Set the default values
 		$default_settings = array(
-			'footer-left'   => 'Copyright &copy; ' . date( 'Y' ) . ' All Rights Reserved',
-			'footer-right' => 'Site by <a href="http://www.kernelcreativemedia.com">Matt Banks</a>',
+			'footer-left'   => 'Copyright &copy; ' . date( 'Y' ) . '. All Rights Reserved',
+			'footer-right' => 'Site by <a href="http://www.sheelahb.com">Sheelah Brennan</a>',
 		);
 
 		// Create the Admin Page
