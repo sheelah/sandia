@@ -438,7 +438,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
                 $plugin['name']   = $_GET['plugin_name']; // Plugin name.
                 $plugin['slug']   = $_GET['plugin']; // Plugin slug.
-                $plugin['source'] = $_GET['plugin_source']; // Plugin source.
+                $plugin['lib'] = $_GET['plugin_source']; // Plugin lib.
 
                 // Pass all necessary information via URL if WP_Filesystem is needed.
                 $url = wp_nonce_url(
@@ -447,7 +447,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                             'page'          => $this->menu,
                             'plugin'        => $plugin['slug'],
                             'plugin_name'   => $plugin['name'],
-                            'plugin_source' => $plugin['source'],
+                            'plugin_source' => $plugin['lib'],
                             'tgmpa-install' => 'install-plugin',
                         ),
                         admin_url( 'themes.php' )
@@ -469,8 +469,8 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                 require_once ABSPATH . 'wp-admin/includes/plugin-install.php'; // Need for plugins_api.
                 require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php'; // Need for upgrade classes.
 
-                // Set plugin source to WordPress API link if available.
-                if ( isset( $plugin['source'] ) && 'repo' == $plugin['source'] ) {
+                // Set plugin lib to WordPress API link if available.
+                if ( isset( $plugin['lib'] ) && 'repo' == $plugin['lib'] ) {
                     $api = plugins_api( 'plugin_information', array( 'slug' => $plugin['slug'], 'fields' => array( 'sections' => false ) ) );
 
                     if ( is_wp_error( $api ) ) {
@@ -478,12 +478,12 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                     }
 
                     if ( isset( $api->download_link ) ) {
-                        $plugin['source'] = $api->download_link;
+                        $plugin['lib'] = $api->download_link;
                     }
                 }
 
-                // Set type, based on whether the source starts with http:// or https://.
-                $type = preg_match( '|^http(s)?://|', $plugin['source'] ) ? 'web' : 'upload';
+                // Set type, based on whether the lib starts with http:// or https://.
+                $type = preg_match( '|^http(s)?://|', $plugin['lib'] ) ? 'web' : 'upload';
 
                 // Prep variables for Plugin_Installer_Skin class.
                 $title = sprintf( $this->strings['installing'], $plugin['name'] );
@@ -495,12 +495,12 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                 $nonce = 'install-plugin_' . $plugin['slug'];
 
                 // Prefix a default path to pre-packaged plugins.
-                $source = ( 'upload' == $type ) ? $this->default_path . $plugin['source'] : $plugin['source'];
+                $source = ( 'upload' == $type ) ? $this->default_path . $plugin['lib'] : $plugin['lib'];
 
                 // Create a new instance of Plugin_Upgrader.
                 $upgrader = new Plugin_Upgrader( $skin = new Plugin_Installer_Skin( compact( 'type', 'title', 'url', 'nonce', 'plugin', 'api' ) ) );
 
-                // Perform the action and install the plugin from the $source urldecode().
+                // Perform the action and install the plugin from the $lib urldecode().
                 $upgrader->install( $source );
 
                 // Flush plugins cache so we can make sure that the installed plugins list is always up to date.
@@ -554,7 +554,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                 // Populate $plugin array with necessary information.
                 $plugin['name']   = $_GET['plugin_name'];
                 $plugin['slug']   = $_GET['plugin'];
-                $plugin['source'] = $_GET['plugin_source'];
+                $plugin['lib'] = $_GET['plugin_source'];
 
                 $plugin_data = get_plugins( '/' . $plugin['slug'] ); // Retrieve all plugins.
                 $plugin_file = array_keys( $plugin_data ); // Retrieve all plugin files from installed plugins.
@@ -698,7 +698,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                     // Loop through the plugin names to make the ones pulled from the .org repo linked.
                     foreach ( $plugin_groups as $plugin_group_single_name ) {
                         $external_url = $this->_get_plugin_data_from_name( $plugin_group_single_name, 'external_url' );
-                        $source       = $this->_get_plugin_data_from_name( $plugin_group_single_name, 'source' );
+                        $source       = $this->_get_plugin_data_from_name( $plugin_group_single_name, 'lib' );
 
                         if ( $external_url && preg_match( '|^http(s)?://|', $external_url ) ) {
                             $linked_plugin_groups[] = '<a href="' . esc_url( $external_url ) . '" title="' . $plugin_group_single_name . '" target="_blank">' . $plugin_group_single_name . '</a>';
@@ -1141,7 +1141,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 $table_data[$i]['slug']             = $this->_get_plugin_data_from_name( $plugin['name'] );
 
                 $external_url = $this->_get_plugin_data_from_name( $plugin['name'], 'external_url' );
-                $source       = $this->_get_plugin_data_from_name( $plugin['name'], 'source' );
+                $source       = $this->_get_plugin_data_from_name( $plugin['name'], 'lib' );
 
                 if ( $external_url && preg_match( '|^http(s)?://|', $external_url ) ) {
                     $table_data[$i]['plugin'] = '<strong><a href="' . esc_url( $external_url ) . '" title="' . $plugin['name'] . '" target="_blank">' . $plugin['name'] . '</a></strong>';
@@ -1168,18 +1168,18 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                     $plugin['name'] = $table_data[$i]['plugin'];
                 }
 
-                if ( ! empty( $plugin['source'] ) ) {
+                if ( ! empty( $plugin['lib'] ) ) {
                     // The plugin must be from a private repository.
-                    if ( preg_match( '|^http(s)?://|', $plugin['source'] ) ) {
-                        $table_data[$i]['source'] = __( 'Private Repository', 'tgmpa' );
+                    if ( preg_match( '|^http(s)?://|', $plugin['lib'] ) ) {
+                        $table_data[$i]['lib'] = __( 'Private Repository', 'tgmpa' );
                     // The plugin is pre-packaged with the theme.
                     } else {
-                        $table_data[$i]['source'] = __( 'Pre-Packaged', 'tgmpa' );
+                        $table_data[$i]['lib'] = __( 'Pre-Packaged', 'tgmpa' );
                     }
                 }
                 // The plugin is from the WordPress repository.
                 else {
-                    $table_data[$i]['source'] = __( 'WordPress Repository', 'tgmpa' );
+                    $table_data[$i]['lib'] = __( 'WordPress Repository', 'tgmpa' );
                 }
 
                 $table_data[$i]['type'] = isset( $plugin['required'] ) && $plugin['required'] ? __( 'Required', 'tgmpa' ) : __( 'Recommended', 'tgmpa' );
@@ -1191,7 +1191,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 }
 
                 $table_data[$i]['file_path'] = $plugin['file_path'];
-                $table_data[$i]['url']       = isset( $plugin['source'] ) ? $plugin['source'] : 'repo';
+                $table_data[$i]['url']       = isset( $plugin['lib'] ) ? $plugin['lib'] : 'repo';
 
                 $i++;
             }
@@ -1375,7 +1375,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
             $columns = array(
                 'cb'     => '<input type="checkbox" />',
                 'plugin' => __( 'Plugin', 'tgmpa' ),
-                'source' => __( 'Source', 'tgmpa' ),
+                'lib' => __( 'Source', 'tgmpa' ),
                 'type'   => __( 'Type', 'tgmpa' ),
                 'status' => __( 'Status', 'tgmpa' )
             );
@@ -1600,7 +1600,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 $plugins             = isset( $_POST['plugin'] ) ? (array) $_POST['plugin'] : array();
                 $plugins_to_activate = array();
 
-                // Split plugin value into array with plugin file path, plugin source and plugin name.
+                // Split plugin value into array with plugin file path, plugin lib and plugin name.
                 foreach ( $plugins as $i => $plugin ) {
                     $plugins_to_activate[] = explode( ',', $plugin );
                 }
@@ -1772,12 +1772,12 @@ function tgmpa_load_bulk_installer() {
                         // Do the plugin install.
                         $result = $this->run(
                             array(
-                                'package'           => $plugin, // The plugin source.
+                                'package'           => $plugin, // The plugin lib.
                                 'destination'       => WP_PLUGIN_DIR, // The destination dir.
                                 'clear_destination' => false, // Do we want to clear the destination or not?
                                 'clear_working'     => true, // Remove original install file.
                                 'is_multi'          => true, // Are we processing multiple installs?
-                                'hook_extra'        => array( 'plugin' => $plugin, ), // Pass plugin source as extra data.
+                                'hook_extra'        => array( 'plugin' => $plugin, ), // Pass plugin lib as extra data.
                             )
                         );
 
@@ -1867,7 +1867,7 @@ function tgmpa_load_bulk_installer() {
                     // Install the package into the working directory with all passed config options.
                     $result = $this->install_package(
                         array(
-                            'source'            => $working_dir,
+                            'lib'            => $working_dir,
                             'destination'       => $destination,
                             'clear_destination' => $clear_destination,
                             'clear_working'     => $clear_working,

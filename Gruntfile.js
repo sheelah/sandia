@@ -25,18 +25,21 @@ module.exports = function(grunt) {
             images: {
                 files: ['assets/images/**/*.{png,jpg,gif}'],
                 tasks: ['imagemin']
-            }
+            },
+			options: {
+			    livereload: true
+			}
         },
 
         // sass
         sass: {
 		    options: {
 			    sourceMap: true,
-			    sourceMapContents:true
+			    sourceMapContents: true
 			},
             dist: {
                 options: {
-                    outputstyle: 'compressed',
+                    outputStyle: 'compressed',
                 },
                 files: {
                     'style.css': 'assets/styles/style.scss',
@@ -45,7 +48,7 @@ module.exports = function(grunt) {
             },
             dev: {
                 options: {
-                    outputstyle: 'expanded',
+                    outputStyle: 'expanded',
                 },
                 files: {
                     'style.css': 'assets/styles/style.scss',
@@ -62,9 +65,8 @@ module.exports = function(grunt) {
             },
             files: {
                 expand: true,
-                flatten: true,
 				cwd: '.',
-                src: '*.css',
+				src: ['style.css', 'editor-style.css'],
                 dest: '.'
             },
         },
@@ -94,25 +96,30 @@ module.exports = function(grunt) {
                     }
 				}
 			},
-            all: ['Gruntfile.js', 'assets/js/source/**/*.js'],
+            all: ['Gruntfile.js', 'assets/js/**/*.js'],
         },
 
-        // uglify to concat, minify, and make source maps
+		// concatenate js files
+        concat: {
+            options: {
+            stripBanners: true,
+            nonull: true,
+        },
+            main: {
+                src: ['assets/js/src/*.js',
+			          '!assets/js/src/customizer.js',
+                      'assets/js/lib/*.js'
+				     ],
+                dest: 'js/sandia.min.js'
+            }
+        },
+
+
+        // uglify to concat, minify, and make lib maps
         uglify: {
-            plugins: {
-                options: {
-                    sourceMap: 'assets/js/plugins.js.map',
-                    sourceMappingURL: 'plugins.js.map',
-                    sourceMapPrefix: 2
-                },
-                files: {
-                    'assets/js/plugins.min.js': [
-                        'assets/js/source/plugins.js',
-                        'assets/js/vendor/navigation.js',
-                        'assets/js/vendor/skip-link-focus-fix.js',
-                        // 'assets/js/vendor/yourplugin/yourplugin.js',
-                    ]
-                }
+            customizer: {
+                src: 'assets/js/src/customizer.js',
+                dest: 'assets/js/customizer.min.js',
             },
             main: {
                 options: {
@@ -120,11 +127,8 @@ module.exports = function(grunt) {
                     sourceMappingURL: 'main.js.map',
                     sourceMapPrefix: 2
                 },
-                files: {
-                    'assets/js/main.min.js': [
-                        'assets/js/source/main.js'
-                    ]
-                }
+                src: 'assets/js/sandia.min.js',
+                dest: 'assets/js/sandia.min.js'
             }
         },
 
@@ -151,7 +155,7 @@ module.exports = function(grunt) {
                 bsFiles: {
                     src : [
 					    'style.css',
-						'assets/js/*.js',
+						'assets/js/**/*.js',
 						'assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
 						'**/*.php'
 					],
@@ -169,7 +173,7 @@ module.exports = function(grunt) {
 
   // register task
   grunt.registerTask('default', ['dev']);
-  grunt.registerTask('dev', ['uglify', 'browserSync', 'watch']);
-  grunt.registerTask('build', ['uglify', 'imagemin', 'sass:dist', 'autoprefixer']);
+  grunt.registerTask('dev', ['concat', 'browserSync', 'watch']);
+  grunt.registerTask('build', ['concat', 'uglify', 'imagemin', 'sass:dist', 'autoprefixer']);
   grunt.registerTask('lint', ['jshint']);
 };

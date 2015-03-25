@@ -191,6 +191,15 @@ function child_theme_setup() {
 
 }
 
+add_action( 'customize_preview_init', 'mb_customize_preview_js' );
+/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+function inspirepurpose_customize_preview_js() {
+    wp_enqueue_script( 'mb_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150325', true );
+}
+add_action( 'customize_preview_init', 'inspirepurpose_customize_preview_js' );
+
 
 /****************************************
 Misc Theme Functions
