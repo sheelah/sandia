@@ -92,11 +92,11 @@ function child_theme_setup() {
 	add_editor_style( 'editor-style.css' );
 
 	// Remove Genesis Theme Settings Metaboxes
-	add_action( 'genesis_theme_settings_metaboxes', 'mb_remove_genesis_metaboxes' );
+	add_action( 'genesis_theme_settings_metaboxes', 'sandia_remove_genesis_metaboxes' );
 
 	// Reposition Genesis Layout Settings Metabox
 	remove_action( 'admin_menu', 'genesis_add_inpost_layout_box' );
-	add_action( 'admin_menu', 'mb_add_inpost_layout_box' );
+	add_action( 'admin_menu', 'sandia_add_inpost_layout_box' );
 
 	// Setup Child Theme Settings
 	include_once( CHILD_DIR . '/lib/child-theme-settings.php' );
@@ -120,20 +120,20 @@ function child_theme_setup() {
 	) );
 
 	// Remove Dashboard Meta Boxes
-	add_action( 'wp_dashboard_setup', 'mb_remove_dashboard_widgets' );
+	add_action( 'wp_dashboard_setup', 'sandia_remove_dashboard_widgets' );
 
 	// Change Admin Menu Order
-	add_filter( 'custom_menu_order', 'mb_custom_menu_order' );
-	add_filter( 'menu_order', 'mb_custom_menu_order' );
+	add_filter( 'custom_menu_order', 'sandia_custom_menu_order' );
+	add_filter( 'menu_order', 'sandia_custom_menu_order' );
 
 	// Hide Admin Areas that are not used
-	add_action( 'admin_menu', 'mb_remove_menu_pages' );
+	add_action( 'admin_menu', 'sandia_remove_menu_pages' );
 
 	// Remove default link for images
-	add_action( 'admin_init', 'mb_imagelink_setup', 10 );
+	add_action( 'admin_init', 'sandia_imagelink_setup', 10 );
 
 	// Define custom post type capabilities for use with Members
-	// add_action( 'admin_init', 'mb_add_post_type_caps' );
+	// add_action( 'admin_init', 'sandia_add_post_type_caps' );
 
 
 	/****************************************
@@ -153,24 +153,24 @@ function child_theme_setup() {
 	add_theme_support( 'genesis-responsive-viewport' );
 
 	// Load Apple touch icon in header
-	add_action( 'wp_head', 'mb_apple_touch_icon', 9 );
+	add_action( 'wp_head', 'sandia_apple_touch_icon', 9 );
 
 	// Remove Edit link
 	add_filter( 'genesis_edit_post_link', '__return_false' );
 
 	// Footer
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
-	add_action( 'genesis_footer', 'mb_footer' );
+	add_action( 'genesis_footer', 'sandia_footer' );
 
 	// Enqueue Scripts
-	add_action( 'wp_enqueue_scripts', 'mb_scripts' );
+	add_action( 'wp_enqueue_scripts', 'sandia_scripts' );
 
 	// Remove Query Strings From Static Resources
-	add_filter( 'script_loader_src', 'mb_remove_script_version', 15, 1 );
-	add_filter( 'style_loader_src', 'mb_remove_script_version', 15, 1 );
+	add_filter( 'script_loader_src', 'sandia_remove_script_version', 15, 1 );
+	add_filter( 'style_loader_src', 'sandia_remove_script_version', 15, 1 );
 
 	// Remove Read More Jump
-	add_filter( 'the_content_more_link', 'mb_remove_more_jump_link' );
+	add_filter( 'the_content_more_link', 'sandia_remove_more_jump_link' );
 
 
 	/****************************************
@@ -187,16 +187,16 @@ function child_theme_setup() {
 	require_once( CHILD_DIR . '/lib/class-tgm-plugin-activation.php' );
 	require_once( CHILD_DIR . '/lib/theme-require-plugins.php' );
 
-	add_action( 'tgmpa_register', 'mb_register_required_plugins' );
+	add_action( 'tgmpa_register', 'sandia_register_required_plugins' );
 
 }
 
-add_action( 'customize_preview_init', 'mb_customize_preview_js' );
+add_action( 'customize_preview_init', 'sandia_customize_preview_js' );
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function inspirepurpose_customize_preview_js() {
-    wp_enqueue_script( 'mb_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150325', true );
+    wp_enqueue_script( 'sandia_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150325', true );
 }
 add_action( 'customize_preview_init', 'inspirepurpose_customize_preview_js' );
 
@@ -206,7 +206,7 @@ Misc Theme Functions
 *****************************************/
 
 // Unregister the superfish scripts
-add_action( 'custom_disable_superfish', 'mb_unregister_superfish' );
+add_action( 'custom_disable_superfish', 'sandia_unregister_superfish' );
 
 // Filter Yoast SEO Metabox Priority
-add_filter( 'wpseo_metabox_prio', 'mb_filter_yoast_seo_metabox' );
+add_filter( 'wpseo_metabox_prio', 'sandia_filter_yoast_seo_metabox' );

@@ -20,7 +20,10 @@ module.exports = function(grunt) {
             },
             js: {
                 files: '<%= jshint.all %>',
-                tasks: ['jshint', 'uglify']
+                tasks: ['concat', 'jshint'],
+				options: {
+				    spawn: false,
+				}
             },
             images: {
                 files: ['assets/images/**/*.{png,jpg,gif}'],
@@ -96,7 +99,7 @@ module.exports = function(grunt) {
                     }
 				}
 			},
-            all: ['Gruntfile.js', 'assets/js/**/*.js'],
+            all: ['Gruntfile.js', 'assets/js/src/*.js'],
         },
 
 		// concatenate js files
@@ -110,7 +113,7 @@ module.exports = function(grunt) {
 			          '!assets/js/src/customizer.js',
                       'assets/js/lib/*.js'
 				     ],
-                dest: 'js/sandia.min.js'
+                dest: 'assets/js/sandia.min.js'
             }
         },
 
@@ -123,14 +126,24 @@ module.exports = function(grunt) {
             },
             main: {
                 options: {
-                    sourceMap: 'assets/js/main.js.map',
-                    sourceMappingURL: 'main.js.map',
+                    sourceMap: 'assets/js/sandia.js.map',
+                    sourceMappingURL: 'sandia.js.map',
                     sourceMapPrefix: 2
                 },
                 src: 'assets/js/sandia.min.js',
                 dest: 'assets/js/sandia.min.js'
             }
         },
+		copy: {
+		    dev: {
+			    files: [
+			        {
+				        src: ['assets/js/src/customizer.js'],
+				        dest: 'assets/js/customizer.min.js'
+                    },
+				]
+			},
+		},
 
         // image optimization
         imagemin: {
@@ -173,7 +186,7 @@ module.exports = function(grunt) {
 
   // register task
   grunt.registerTask('default', ['dev']);
-  grunt.registerTask('dev', ['concat', 'browserSync', 'watch']);
+  grunt.registerTask('dev', ['copy', 'concat', 'browserSync', 'watch']);
   grunt.registerTask('build', ['concat', 'uglify', 'imagemin', 'sass:dist', 'autoprefixer']);
   grunt.registerTask('lint', ['jshint']);
 };

@@ -59,8 +59,8 @@ function getCSS(element, property) {
 function stickyFooter() {
     observer.disconnect();
     document.body.setAttribute("style","height:auto");
-    var footer = getElementByClassName("site-footer");
-    if (footer.getLength() > 0) {
+    var footer = document.getElementsByClassName("site-footer");
+    if (footer.length > 0) {
         footer = footer[0];
     } else {
         console.log("no footer found!");
