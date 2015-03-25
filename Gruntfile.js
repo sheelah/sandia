@@ -20,7 +20,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: '<%= jshint.all %>',
-                tasks: ['concat', 'jshint'],
+                tasks: ['concat', 'copy', 'jshint'],
 				options: {
 				    spawn: false,
 				}
