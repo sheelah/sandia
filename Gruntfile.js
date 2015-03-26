@@ -15,7 +15,7 @@ module.exports = function(grunt) {
         // watch for changes and trigger sass, jshint, uglify and livereload
         watch: {
             sass: {
-                files: ['assets/styles/**/*.{scss,sass}'],
+                files: ['assets/sass/**/*.{scss,sass}'],
                 tasks: ['sass:dev', 'autoprefixer']
             },
             js: {
@@ -45,8 +45,8 @@ module.exports = function(grunt) {
                     outputStyle: 'compressed',
                 },
                 files: {
-                    'style.css': 'assets/styles/style.scss',
-                    'editor-style.css': 'assets/styles/editor-style.scss'
+                    'style.css': 'assets/sass/style.scss',
+                    'editor-style.css': 'assets/sass/editor-style.scss'
                 }
             },
             dev: {
@@ -54,8 +54,8 @@ module.exports = function(grunt) {
                     outputStyle: 'expanded',
                 },
                 files: {
-                    'style.css': 'assets/styles/style.scss',
-                    'editor-style.css': 'assets/styles/editor-style.scss'
+                    'style.css': 'assets/sass/style.scss',
+                    'editor-style.css': 'assets/sass/editor-style.scss'
                 }
             }
         },

@@ -89,3 +89,20 @@
 			 url($font-url + '/' + $font-name + '.svg#' + $font-name) format('svg');
 	}
 }
+
+/*
+ * @rem-calc mixin
+ * Allows you to optionally calculate on a different base value to counter compounding
+ * effect of rem's. Call with 1, 2, 3, or 4 parameters.
+ */
+@function rem-calc($values, $base-value: $rem-base) {
+	$max: length($values);
+
+	@if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+	$remValues: ();
+	@for $i from 1 through $max {
+		$remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+	}
+	@return $remValues;
+}

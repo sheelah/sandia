@@ -165,6 +165,9 @@ function child_theme_setup() {
 	// Enqueue Scripts
 	add_action( 'wp_enqueue_scripts', 'sandia_scripts' );
 
+	// Enqueue Web Fonts
+	add_action( 'wp_enqueue_scripts', 'sandia_web_fonts' );
+
 	// Remove Query Strings From Static Resources
 	add_filter( 'script_loader_src', 'sandia_remove_script_version', 15, 1 );
 	add_filter( 'style_loader_src', 'sandia_remove_script_version', 15, 1 );

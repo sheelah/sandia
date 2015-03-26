@@ -107,6 +107,15 @@ function sandia_footer() {
 }
 
 /**
+ * Enqueue Web Fonts
+ */
+function sandia_web_fonts() {
+	$font_base_url = '//fonts.googleapis.com/css';
+	$font_query     = '?family=Lato:300,400,700,400italic';
+	wp_enqueue_style( 'sandia-web-fonts', $font_base_url . $font_query );
+}
+
+/**
  * Enqueue Script
  */
 function sandia_scripts() {

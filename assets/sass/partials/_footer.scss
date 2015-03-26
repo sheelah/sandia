@@ -3,4 +3,10 @@
    ========================================================================== */
 
 .site-footer {
+	line-height: inherit;
+	padding: 2em 0;
+	p {
+		margin: 0.3em 0;
+		margin-bottom: 0;
+	}
 }
