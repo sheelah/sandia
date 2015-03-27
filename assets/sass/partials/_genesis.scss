@@ -957,7 +957,7 @@ img.alignright,
 .genesis-nav-menu a:hover,
 .genesis-nav-menu .current-menu-item > a,
 .genesis-nav-menu .sub-menu .current-menu-item > a:hover {
-	color: darken($jet, 40%);
+	color: mix($jet, $black, 10%);
 }
 
 .genesis-nav-menu .sub-menu {
