@@ -2,7 +2,7 @@
 /**
  * This is the homepage template file.
  *
- * @package  Genesis-Starter-Child-Theme
+ * @package  sandia
  * @since    1.0.0
  */
 

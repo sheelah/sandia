@@ -91,7 +91,25 @@
 }
 
 /*
- * @rem-calc mixin
+ * @strip-unit function
+ * Strips the unit of measure and returns it.
+ */
+@function strip-unit($num) {
+	@return $num / ($num * 0 + 1);
+}
+
+/*
+ * @convert-to-rem function
+ * Helper function for @rem-calc
+ */
+@function convert-to-rem($value, $base-value: $rem-base)  {
+	$value: strip-unit($value) / strip-unit($base-value) * 1rem;
+	@if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+	@return $value;
+}
+
+/*
+ * @rem-calc function
  * Allows you to optionally calculate on a different base value to counter compounding
  * effect of rem's. Call with 1, 2, 3, or 4 parameters.
  */

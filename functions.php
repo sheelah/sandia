@@ -116,7 +116,8 @@ function child_theme_setup() {
 	// Add support for custom header
 	add_theme_support( 'genesis-custom-header', array(
 		'width' => 960,
-		'height' => 80
+		'height' => 80,
+		'header_image' => get_stylesheet_directory_uri() . '/assets/images/header.png'
 	) );
 
 	// Remove Dashboard Meta Boxes
@@ -174,6 +175,9 @@ function child_theme_setup() {
 
 	// Remove Read More Jump
 	add_filter( 'the_content_more_link', 'sandia_remove_more_jump_link' );
+
+	// Remove the Site Description
+	remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
 
 	/****************************************
