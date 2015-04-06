@@ -3,12 +3,14 @@
    ========================================================================== */
 
 ::-moz-selection {
-	background: $selectionColor;
+	background: $selection-color;
+	color: $white;
 	text-shadow: none;
 }
 
 ::selection {
-	background: $selectionColor;
+	background: $selection-color;
+	color: $white;
 	text-shadow: none;
 }
 
@@ -49,4 +51,22 @@ address {
 
 body {
 	color: $jet;
+}
+
+// Fix IE7 image scaling
+img {
+	-ms-interpolation-mode: bicubic;
+}
+
+// http://davidwalsh.name/html5-boilerplate
+@media print {
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+	img {
+		max-width: 100% !important;
+	}
 }
