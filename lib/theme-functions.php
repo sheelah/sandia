@@ -95,7 +95,14 @@ Frontend
  * Load apple touch icon in header
  */
 function sandia_apple_touch_icon() {
-	echo '<link rel="apple-touch-icon" href="' . get_stylesheet_directory_uri() . '/images/apple-touch-icon.png" />' . "\n";
+	echo '<link rel="apple-touch-icon" href="' . get_stylesheet_directory_uri() . '/assets/images/apple-touch-icon.png" />' . "\n";
+}
+
+/**
+ * Favicon
+ */
+function sandia_favicon_filter() {
+	return get_stylesheet_directory_uri() . '/assets/images/favicon.ico';
 }
 
 /**

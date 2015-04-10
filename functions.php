@@ -179,6 +179,9 @@ function child_theme_setup() {
 	// Remove the Site Description
 	remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
+	// Set favicon
+	add_filter( 'genesis_pre_load_favicon', 'sandia_favicon_filter' );
+
 
 	/****************************************
 	Theme Views
