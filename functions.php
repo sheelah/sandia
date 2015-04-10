@@ -159,7 +159,7 @@ function child_theme_setup() {
 	// Remove Edit link
 	add_filter( 'genesis_edit_post_link', '__return_false' );
 
-	// Footer
+	// Remove Default Genesis footer and add custom footer
 	remove_action( 'genesis_footer', 'genesis_do_footer' );
 	add_action( 'genesis_footer', 'sandia_footer' );
 
