@@ -113,12 +113,9 @@ function child_theme_setup() {
 	// Add support for custom background
 	add_theme_support( 'custom-background' );
 
-	// Add support for custom header
-	add_theme_support( 'genesis-custom-header', array(
-		'width' => 960,
-		'height' => 80,
-		'header_image' => get_stylesheet_directory_uri() . '/assets/images/header.png'
-	) );
+	// Add support for SVG in media uploader
+	add_filter( 'upload_mimes', 'sandia_enable_svg_upload' );
+	add_filter( 'genesis_get_image', 'sandia_resize_svg' );
 
 	// Remove Dashboard Meta Boxes
 	add_action( 'wp_dashboard_setup', 'sandia_remove_dashboard_widgets' );
@@ -179,6 +176,13 @@ function child_theme_setup() {
 	// Remove the Site Description
 	remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
+	//Remove the Site Title
+	//remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
+
+	// Removes Genesis SEO options since Yoast SEO is used instead
+	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );
+	remove_theme_support( 'genesis-seo-settings-menu' );
+
 	// Set favicon
 	add_filter( 'genesis_pre_load_favicon', 'sandia_favicon_filter' );
 
@@ -218,4 +222,5 @@ add_action( 'custom_disable_superfish', 'sandia_unregister_superfish' );
 
 // Filter Yoast SEO Metabox Priority
 add_filter( 'wpseo_metabox_prio', 'sandia_filter_yoast_seo_metabox' );
+
 

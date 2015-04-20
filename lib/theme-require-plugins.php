@@ -15,13 +15,6 @@ function sandia_register_required_plugins() {
 		),
 
 		array(
-			'name' 				=> 'Pods - Custom Content Types and Fields',
-			'slug' 				=> 'pods',
-			'required' 			=> true,
-			'force_activation'	=> true
-		),
-
-		array(
 			'name' 				=> 'Google Analytics for WordPress',
 			'slug' 				=> 'google-analytics-for-wordpress',
 			'required' 			=> true,

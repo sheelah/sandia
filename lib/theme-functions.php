@@ -86,6 +86,30 @@ function sandia_imagelink_setup() {
 	}
 }
 
+/**
+ * Add SVG support in media uploader.
+ */
+function sandia_enable_svg_upload( $mimes ) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+
+/**
+ * Fix SVG sizing
+ *
+ * By default, WordPress renders all SVG files uploaded through the Media
+ * Uploader with both width and height at "1".
+ */
+function sandia_resize_svg( $output ) {
+
+	// Replace width of "1" with a new width of "100%" and height of "1"
+    // with a new height of "auto"
+	$output = str_replace(
+		'width="1" height="1"',
+		'width="100%" height="auto"',
+		$output );
+	return $output;
+}
 
 /****************************************
 Frontend
