@@ -64,10 +64,6 @@ function child_theme_setup() {
 
 	// Sidebars
 	unregister_sidebar( 'sidebar-alt' );
-	genesis_register_sidebar( array(
-		'name' => 'Footer',
-		'id' => 'custom-footer'
-	) );
 	//add_theme_support( 'genesis-footer-widgets', 4 );
 
 	// Execute shortcodes in widgets
