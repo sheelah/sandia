@@ -16,6 +16,9 @@ Template: genesis
 @import "partials/variables";
 @import "partials/mixins";
 
+// Normalize
+@import "partials/normalize";
+
 // Genesis
 @import "partials/genesis";
 
