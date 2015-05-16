@@ -369,7 +369,7 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button {
-	background-color: $dark-gray;
+	background-color: $accent-color;
 	border: none;
 	color: $white;
 	cursor: pointer;
@@ -385,7 +385,7 @@ input[type="submit"],
 .footer-widgets input[type="reset"],
 .footer-widgets input[type="submit"],
 .footer-widgets .button {
-	background-color: #e5554e;
+	background-color: $accent-color;
 	color: $white;
 }
 
@@ -394,7 +394,7 @@ input:hover[type="button"],
 input:hover[type="reset"],
 input:hover[type="submit"],
 .button:hover {
-	background-color: #e5554e;
+	background-color: $accent-color-dark;
 	color: $white;
 }
 
@@ -833,7 +833,7 @@ img.alignright,
 }
 
 .enews-widget input[type="submit"] {
-	background-color: #e5554e;
+	background-color: $accent-color;
 	color: $white;
 	margin: 0;
 	width: 100%;
@@ -1046,7 +1046,7 @@ img.alignright,
 .nav-primary .genesis-nav-menu a:hover,
 .nav-primary .genesis-nav-menu .current-menu-item > a,
 .nav-primary .genesis-nav-menu .sub-menu .current-menu-item > a:hover {
-	color: #e5554e;
+	color: $accent-color;
 }
 
 /* ## Secondary Navigation
@@ -1155,7 +1155,7 @@ p.entry-meta {
 
 .archive-pagination li a:hover,
 .archive-pagination .active a {
-	background-color: #e5554e;
+	background-color: $accent-color;
 }
 
 /* ## Comments

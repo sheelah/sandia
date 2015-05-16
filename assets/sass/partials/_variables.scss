@@ -11,7 +11,10 @@ $black: #000;
 $light-gray: #f5f5f5;
 $mid-dark-gray: #6e6868;
 $dark-gray: #333;
+$mid-blue: #3C6293;
 
+$accent-color: $mid-blue;
+$accent-color-dark: mix($mid-blue, black, 80%);
 $body-bg-color: $light-gray;
 $body-text-color: $jet;
 $heading-text-color: $jet;
