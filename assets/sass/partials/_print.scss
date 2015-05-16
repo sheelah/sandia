@@ -1,0 +1,16 @@
+/* ==========================================================================
+   Print-specific styles
+   ========================================================================== */
+
+// http://davidwalsh.name/html5-boilerplate
+@media print {
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    img {
+        max-width: 100% !important;
+    }
+}

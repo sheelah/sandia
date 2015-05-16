@@ -22,9 +22,6 @@ Template: genesis
 // Genesis
 @import "partials/genesis";
 
-// General, Typography
-@import "partials/general";
-
 // Layout
 @import "partials/header";
 @import "partials/maincontent";
@@ -42,3 +39,6 @@ Template: genesis
 @import "partials/widgets";
 @import "partials/comments";
 @import "partials/forms";
+
+// Print-specific styles
+@import "partials/print";

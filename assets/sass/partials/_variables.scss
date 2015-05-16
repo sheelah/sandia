@@ -2,22 +2,22 @@
    Variables
    ========================================================================== */
 
-// Font Face
-// @include fontface('FONT_NAME', 'assets/fonts/', 'FONT_FAMILY');
-
-// Structure
-$pageWidth: 1000px;
-
-// Text Selection
-$selection-color: #6e6868;
-
-
 // Colors
 $red: red;
 $blue: blue;
 $jet: #605f5f;
 $white: #fff;
 $black: #000;
+$light-gray: #f5f5f5;
+$mid-dark-gray: #6e6868;
+$dark-gray: #333;
+
+$body-bg-color: $light-gray;
+$body-text-color: $jet;
+$heading-text-color: $jet;
+$link-color: $jet;
+$link-hover-color: mix($link-color, black, 80%);
+$selection-color: $mid-dark-gray;
 
 // Typography
 $rem-base: 16px !default;

@@ -125,13 +125,14 @@ input[type="search"] {
 --------------------------------------------- */
 
 body {
-	background-color: #f5f5f5;
-	color: #333;
+    color: $body-text-color;
+    background-color: $body-bg-color;
 	font-family: Lato, sans-serif;
 	font-size: 100%;
 	font-weight: 300;
 	line-height: 1.625;
 	margin: 0;
+	-webkit-font-smoothing: antialised;
 }
 
 a,
@@ -146,26 +147,25 @@ textarea:focus,
 	transition: all 0.1s ease-in-out;
 }
 
-::-moz-selection {
-	background-color: #333;
-	color: #fff;
+::-moz-selection,
+::selection  {
+    background: $selection-color;
+    color: $white;
+    text-shadow: none;
 }
 
-::selection {
-	background-color: #333;
-	color: #fff;
-}
-
-a {
-	color: #e5554e;
+a,
+a:visited {
+    color: $link-color;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #333;
+    color: $link-hover-color;
 }
 
 p {
+	color: $body-text-color;
 	margin: 0 0 1.6em;
 	padding: 0;
 }
@@ -216,7 +216,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #333;
+	color: $heading-text-color;
 	font-family: Lato, sans-serif;
 	font-weight: 400;
 	line-height: 1.2;
@@ -261,6 +261,8 @@ video,
 
 img {
 	height: auto;
+	// Fix IE7 image scaling
+	-ms-interpolation-mode: bicubic;
 }
 
 .featured-content img,
@@ -329,13 +331,14 @@ img {
 input,
 select,
 textarea {
-	background-color: #fff;
+	background-color: $white;
 	border: 1px solid #ddd;
-	color: #333;
+	color: $dark-gray;
 	font-size: rem-calc(18);
 	font-weight: 300;
 	padding: 1em;
 	width: 100%;
+	-webkit-font-smoothing: antialiased;
 }
 
 input:focus,
@@ -351,13 +354,13 @@ input[type="radio"] {
 }
 
 ::-moz-placeholder {
-	color: #333;
+	color: $dark-gray;
 	font-weight: 300;
 	opacity: 1;
 }
 
 ::-webkit-input-placeholder {
-	color: #333;
+	color: $dark-gray;
 	font-weight: 300;
 }
 
@@ -366,9 +369,9 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"],
 .button {
-	background-color: #333;
+	background-color: $dark-gray;
 	border: none;
-	color: #fff;
+	color: $white;
 	cursor: pointer;
 	font-size: rem-calc(16);
 	font-weight: 300;
@@ -383,7 +386,7 @@ input[type="submit"],
 .footer-widgets input[type="submit"],
 .footer-widgets .button {
 	background-color: #e5554e;
-	color: #fff;
+	color: $white;
 }
 
 button:hover,
@@ -392,11 +395,11 @@ input:hover[type="reset"],
 input:hover[type="submit"],
 .button:hover {
 	background-color: #e5554e;
-	color: #fff;
+	color: $white;
 }
 
 .entry-content .button:hover {
-	color: #fff;
+	color: $white;
 }
 
 .footer-widgets button:hover,
@@ -404,8 +407,8 @@ input:hover[type="submit"],
 .footer-widgets input:hover[type="reset"],
 .footer-widgets input:hover[type="submit"],
 .footer-widgets .button:hover {
-	background-color: #fff;
-	color: #333;
+	background-color: $white;
+	color: $dark-gray;
 }
 
 .button {
@@ -619,7 +622,7 @@ th {
 
 .archive-description,
 .author-box {
-	background-color: #fff;
+	background-color: $white;
 	font-size: rem-calc(16);
 	margin-bottom: 1.8em;
 	padding: 2.2em;
@@ -676,11 +679,11 @@ th {
 
 .entry-title a,
 .sidebar .widget-title a {
-	color: #333;
+	color: $link-color;
 }
 
 .entry-title a:hover {
-	color: #e5554e;
+	color: $link-hover-color;
 }
 
 .widget-title {
@@ -689,7 +692,7 @@ th {
 }
 
 .footer-widgets .widget-title {
-	color: #fff;
+	color: $white;
 }
 
 /* ## WordPress
@@ -812,16 +815,16 @@ img.alignright,
 
 .enews-widget,
 .enews-widget .widget-title {
-	color: #fff;
+	color: $white;
 }
 
 .sidebar .widget.enews-widget {
-	background-color: #333;
+	background-color: $dark-gray;
 }
 
 .enews-widget input,
 .enews-widget input:focus {
-	border: 1px solid #333;
+	border: 1px solid $dark-gray;
 }
 
 .enews-widget input {
@@ -831,14 +834,14 @@ img.alignright,
 
 .enews-widget input[type="submit"] {
 	background-color: #e5554e;
-	color: #fff;
+	color: $white;
 	margin: 0;
 	width: 100%;
 }
 
 .enews-widget input:hover[type="submit"] {
-	background-color: #fff;
-	color: #333;
+	background-color: $white;
+	color: $dark-gray
 }
 
 .enews form + p {
@@ -857,7 +860,7 @@ img.alignright,
 ---------------------------------------------------------------------------------------------------- */
 
 .site-header {
-	background-color: #fff;
+	background-color: $white;
 	min-height: 10em;
 }
 
@@ -886,7 +889,7 @@ img.alignright,
 
 .site-title a,
 .site-title a:hover {
-	color: #333;
+	color: $link-color;
 }
 
 .header-image .site-title > a {
@@ -939,7 +942,7 @@ img.alignright,
 }
 
 .genesis-nav-menu a {
-	color: #333;
+	color: $dark-gray;
 	display: block;
 	padding: 1.8em 1.5em;
 }
@@ -960,7 +963,7 @@ img.alignright,
 }
 
 .genesis-nav-menu .sub-menu a {
-	background-color: #fff;
+	background-color: $white;
 	border: 1px solid #eee;
 	border-top: none;
 	font-size: rem-calc(14);
@@ -991,7 +994,7 @@ img.alignright,
 }
 
 .genesis-nav-menu > .right {
-	color: #fff;
+	color: $white;
 	float: right;
 	list-style-type: none;
 	padding: 30px 0;
@@ -1029,15 +1032,15 @@ img.alignright,
 --------------------------------------------- */
 
 .nav-primary {
-	background-color: #333;
+	background-color: $dark-gray;
 }
 
 .nav-primary .genesis-nav-menu a {
-	color: #fff;
+	color: $white;
 }
 
 .nav-primary .genesis-nav-menu .sub-menu a {
-	color: #333;
+	color: $dark-gray;
 }
 
 .nav-primary .genesis-nav-menu a:hover,
@@ -1050,7 +1053,7 @@ img.alignright,
 --------------------------------------------- */
 
 .nav-secondary {
-	background-color: #fff;
+	background-color: $white;
 }
 
 
@@ -1066,7 +1069,7 @@ img.alignright,
 }
 
 .content .entry {
-	background-color: #fff;
+	background-color: $white;
 }
 
 // Use bigger font size for blog entry and page content
@@ -1094,7 +1097,7 @@ main .entry-content p {
 }
 
 .entry-content code {
-	background-color: #333;
+	background-color: $dark-gray;
 	color: #ddd;
 }
 
@@ -1142,8 +1145,8 @@ p.entry-meta {
 }
 
 .archive-pagination li a {
-	background-color: #333;
-	color: #fff;
+	background-color: $dark-gray;
+	color: $white;
 	cursor: pointer;
 	display: inline-block;
 	font-size: rem-calc(16);
@@ -1161,7 +1164,7 @@ p.entry-meta {
 .comment-respond,
 .entry-comments,
 .entry-pings {
-	background-color: #fff;
+	background-color: $white;
 	margin-bottom: 2.5em;
 }
 
@@ -1180,7 +1183,7 @@ p.entry-meta {
 
 li.comment {
 	background-color: #f5f5f5;
-	border: 2px solid #fff;
+	border: 2px solid $white;
 	border-right: none;
 }
 
@@ -1245,7 +1248,7 @@ li.comment {
 }
 
 .sidebar .widget {
-	background-color: #fff;
+	background-color: $white;
 	margin-bottom: 2.5em;
 	padding: 2.5em;
 }
@@ -1255,7 +1258,7 @@ li.comment {
 ---------------------------------------------------------------------------------------------------- */
 
 .footer-widgets {
-	background-color: #333;
+	background-color: $dark-gray;
 	clear: both;
 	padding-top: 40px;
 }
@@ -1266,12 +1269,12 @@ li.comment {
 }
 
 .footer-widgets input {
-	border: 1px solid #333;
+	border: 1px solid $dark-gray;
 }
 
 .footer-widgets a.button,
 .footer-widgets a:hover {
-	color: #fff;
+	color: $white;
 }
 
 .footer-widgets li {
@@ -1312,7 +1315,7 @@ li.comment {
 ---------------------------------------------------------------------------------------------------- */
 
 .site-footer {
-	background-color: #fff;
+	background-color: $white;
 	font-size: rem-calc(16);
 	line-height: 1;
 	padding: 2.5em 0;
@@ -1434,7 +1437,7 @@ li.comment {
 @media only screen and (max-width: 800px) {
 
 	body {
-		background-color: #fff;
+		background-color: $white;
 		font-size: rem-calc(16);
 	}
 
