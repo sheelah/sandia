@@ -20,7 +20,6 @@ Copy the contents of this file to the child theme. Do not use @import, as the CS
 /* # Table of Contents
 - Imports
 - HTML5 Reset
-	- Baseline Normalize
 	- Box Sizing
 	- Float Clearing
 - Defaults
@@ -929,7 +928,7 @@ img.alignright,
 
 .genesis-nav-menu {
 	clear: both;
-	font-size: rem-calc(16);
+	font-size: rem-calc(18);
 	line-height: 1;
 	width: 100%;
 }
@@ -1068,6 +1067,11 @@ img.alignright,
 
 .content .entry {
 	background-color: #fff;
+}
+
+// Use bigger font size for blog entry and page content
+main .entry-content p {
+	font-size: rem-calc(18);
 }
 
 .entry-content ol,
