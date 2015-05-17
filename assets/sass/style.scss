@@ -40,5 +40,8 @@ Template: genesis
 @import "partials/comments";
 @import "partials/forms";
 
+// Accessibility
+@import "partials/accessibility";
+
 // Print-specific styles
 @import "partials/print";

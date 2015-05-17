@@ -182,6 +182,11 @@ function child_theme_setup() {
 	// Set favicon
 	add_filter( 'genesis_pre_load_favicon', 'sandia_favicon_filter' );
 
+	// Accessibility tweaks
+	// Add "inner" ID for skip nav link
+	add_filter( 'genesis_attr_site-inner', 'sandia_add_content_id', 15 );
+	// Add the skip nav link
+	add_action( 'get_header', 'sandia_add_skip_link', 1 );
 
 	/****************************************
 	Theme Views
