@@ -218,9 +218,6 @@ add_action( 'customize_preview_init', 'sandia_customize_preview_js' );
 Misc Theme Functions
 *****************************************/
 
-// Unregister the superfish scripts
-add_action( 'custom_disable_superfish', 'sandia_unregister_superfish' );
-
 // Filter Yoast SEO Metabox Priority
 add_filter( 'wpseo_metabox_prio', 'sandia_filter_yoast_seo_metabox' );
 

@@ -191,14 +191,6 @@ Misc Theme Functions
 *****************************************/
 
 /**
- * Unregister the superfish scripts
- */
-function sandia_unregister_superfish() {
-	wp_deregister_script( 'superfish' );
-	wp_deregister_script( 'superfish-args' );
-}
-
-/**
  * Filter Yoast SEO Metabox Priority
  */
 function sandia_filter_yoast_seo_metabox() {
