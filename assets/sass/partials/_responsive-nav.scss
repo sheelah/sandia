@@ -1,0 +1,158 @@
+/* Responsive Navigation
+---------------------------------------------------------------------------------------------------- */
+
+/* Standard Navigation
+--------------------------------------------- */
+
+nav {
+	clear: both;
+}
+
+/* Navigation toggles - Mobile
+--------------------------------------------- */
+
+// Default to mobile nav below 768px
+@media only screen and (max-width: 47.9375em) {
+	.menu-toggle,
+	.sub-menu-toggle {
+		display: block;
+		position: relative;
+	}
+
+	button.menu-toggle,
+	button.sub-menu-toggle {
+		background-color: transparent;
+		color: $body-text-color;
+		&:focus {
+		  outline: 0;
+		}
+	}
+
+	.menu-toggle {
+		position: absolute;
+		top: 25px;
+		right: 15px;
+	}
+
+	.sub-menu-toggle {
+		padding: 1em 3em 1em 1em;
+		position: absolute;
+		right: 0;
+		top: 0;
+		line-height: 1;
+	}
+
+	.menu-toggle:before {
+		content: "";
+		display: block;
+		box-shadow: 0 0 0 1px #605f5f,0 7px 0 1px #605f5f,0 14px 0 1px #605f5f;
+		width: 1em;
+	}
+
+	button.sub-menu-toggle,
+	.sub-menu-toggle:before,
+	.sub-menu-toggle.activated:before {
+		font-size: rem-calc(16);
+		font-weight: 700;
+	}
+
+	.sub-menu-toggle:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 0;
+		border-top: 4px solid;
+		border-bottom: none;
+		border-right: 4px solid transparent;
+		border-left: 4px solid transparent;
+		margin-top: 5px;
+	}
+
+	.sub-menu-toggle.activated:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 0;
+		border-top: none;
+		border-bottom: 4px solid;
+		border-right: 4px solid transparent;
+		border-left: 4px solid transparent;
+		margin-top: 5px;
+	}
+
+	nav {
+		display: none;
+		overflow: hidden;
+		width: 100%;
+		padding-top: 1em;
+	}
+
+	.genesis-nav-menu .menu-item {
+		background-color: #f5f5f5;
+		display: block;
+		position: relative;
+		text-align: left;
+	}
+
+	.genesis-nav-menu .menu-item:hover {
+		position: relative;
+	}
+
+	.genesis-nav-menu > .menu-item a {
+		padding-left: 4.5em;
+	}
+
+	.genesis-nav-menu .sub-menu {
+		display: none;
+		clear: both;
+		opacity: 1;
+		position: static;
+		width: 100%;
+		background-color: $white;
+	}
+
+	.genesis-nav-menu .sub-menu a {
+		border-left: 0;
+		position: relative;
+		width: auto;
+		padding-left: 6.5em;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu {
+		margin: 0;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu a {
+		background-color: #f5f5f5;
+		padding-left: 7.5em;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu .sub-menu a {
+		background-color: #fff;
+		padding-left: 8.5em;
+	}
+
+	.genesis-nav-menu .sub-menu .sub-menu .sub-menu .sub-menu a {
+		background-color: #fff;
+		padding-left: 9.5em;
+	}
+
+	.nav-primary a:hover,
+	.nav-primary .current-menu-item > a {
+		color: #333;
+	}
+}
+
+/* Navigation toggles
+--------------------------------------------- */
+
+// Hide nav buttons on wider widths and show regular nav instead
+@media only screen and (min-width: $screen-sm) {
+    .sub-menu-toggle,
+    .menu-toggle {
+        display: none;
+    }
+    nav {
+        display: block !important;
+    }
+}

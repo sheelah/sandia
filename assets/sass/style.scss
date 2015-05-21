@@ -28,6 +28,7 @@ Template: genesis
 @import "partials/footer";
 
 // Menus, Page and Post styles
+@import "partials/responsive-nav";
 @import "partials/menus";
 @import "partials/page-post";
 
