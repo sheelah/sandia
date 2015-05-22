@@ -925,14 +925,16 @@ img.alignright,
 
 .site-header {
 	background-color: $white;
-	min-height: 8em;
 	@media only screen and (min-width: $screen-sm) {
 		padding: 0 4%;
 	}
 }
 
 .site-header .wrap {
-	padding: 2em 0 0 0;
+	padding: 2em 0;
+	@media only screen and (min-width: $screen-sm) {
+		padding: 0;
+	}
 }
 
 .site-header .search-form {
@@ -947,7 +949,7 @@ img.alignright,
 	width: 100%;
 	@media only screen and (min-width: $screen-sm) {
 		float: left;
-		padding: 1em 0;
+		padding: 1.5em 0;
 		width: 30%;
 	}
 }
@@ -960,7 +962,7 @@ img.alignright,
 	font-size: rem-calc(32);
 	font-weight: 400;
 	line-height: 1;
-	padding-left: 2em;
+	padding-left: 4%;
 	@media only screen and (min-width: $screen-sm) {
 		text-align: left;
 		padding-left: 0;
@@ -1082,10 +1084,26 @@ img.alignright,
 	border-top: none;
 	font-size: rem-calc(16);
 	position: relative;
-	width: 12.5em; // 200px
+	width: 13.5em; // 200px
 	padding: 1em;
 	@media only screen and (min-width: $screen-sm) {
 		padding: 1.2em;
+	}
+}
+
+.genesis-nav-menu > li.menu-item-has-children > a:after {
+	@media only screen and (min-width: $screen-sm) {
+		content: "";
+		color: $top-nav-carat-color;
+        display: inline-block;
+		vertical-align: middle;
+        width: 0;
+        height: 0;
+        border-top: 4px solid;
+        border-bottom: none;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+		margin-left: 0.4em;
 	}
 }
 

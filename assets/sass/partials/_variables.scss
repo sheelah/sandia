@@ -21,6 +21,7 @@ $heading-text-color: $jet;
 $link-color: $jet;
 $link-hover-color: mix($link-color, black, 40%);
 $selection-color: $mid-dark-gray;
+$top-nav-carat-color: mix($link-color, white, 90%);
 
 // Typography
 $rem-base: 16px !default;
