@@ -94,22 +94,6 @@ function sandia_enable_svg_upload( $mimes ) {
     return $mimes;
 }
 
-/**
- * Fix SVG sizing
- *
- * By default, WordPress renders all SVG files uploaded through the Media
- * Uploader with both width and height at "1".
- */
-function sandia_resize_svg( $output ) {
-
-	// Replace width of "1" with a new width of "100%" and height of "1"
-    // with a new height of "auto"
-	$output = str_replace(
-		'width="1" height="1"',
-		'width="100%" height="auto"',
-		$output );
-	return $output;
-}
 
 /****************************************
 Frontend
@@ -127,6 +111,23 @@ function sandia_apple_touch_icon() {
  */
 function sandia_favicon_filter() {
 	return get_stylesheet_directory_uri() . '/assets/images/favicon.ico';
+}
+
+/**
+ * Fix SVG sizing
+ *
+ * By default, WordPress renders all SVG files uploaded through the Media
+ * Uploader with both width and height at "1".
+ */
+function sandia_resize_svg( $output ) {
+
+	// Replace width of "1" with a new width of "100%" and height of "1"
+    // with a new height of "auto"
+	$output = str_replace(
+		'width="1" height="1"',
+		'width="100%" height="auto"',
+		$output );
+	return $output;
 }
 
 /**
@@ -214,5 +215,19 @@ function sandia_add_content_id( $attributes ) {
  * Add a link first thing after the body element that will skip to the inner element.
  */
 function sandia_add_skip_link() {
-	echo '<a class="skip-link screen-reader-text" href="#inner">Skip to content</a>';
+	echo '<a class="skip-link screen-reader-text" href="#inner">' . __('Skip to content', 'sandia') . '</a>';
+}
+
+
+/**
+ * Adds the title to the read more link in archives
+ *
+ * @since 1.0
+ */
+
+function sandia_read_more_link( $link ) {
+    return '...<br /> <a href="'. get_permalink() .'" class="more-link">' .
+		__( 'Read more', 'genesis' ) . '<span class="more-link-title screen-reader-text"> ' .
+		__( 'about ', 'sandia' ) . get_the_title() .
+		"</span></a>";
 }

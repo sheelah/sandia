@@ -187,6 +187,9 @@ function child_theme_setup() {
 	add_filter( 'genesis_attr_site-inner', 'sandia_add_content_id', 15 );
 	// Add the skip nav link
 	add_action( 'get_header', 'sandia_add_skip_link', 1 );
+	// Add the title to "read more" links
+	add_filter('get_the_content_more_link', 'sandia_read_more_link');
+	add_filter('the_content_more_link', 'sandia_read_more_link');
 
 	/****************************************
 	Theme Views
@@ -220,5 +223,3 @@ Misc Theme Functions
 
 // Filter Yoast SEO Metabox Priority
 add_filter( 'wpseo_metabox_prio', 'sandia_filter_yoast_seo_metabox' );
-
-
