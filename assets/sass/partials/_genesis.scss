@@ -662,7 +662,6 @@ th {
 .entry-comments,
 .entry-pings,
 .footer-widgets,
-.pagination,
 .sidebar .widget,
 .sidebar .widget.enews-widget
 .site-header {
@@ -1280,6 +1279,7 @@ p.entry-meta {
 .pagination {
 	clear: both;
 	margin: 2.5em 0;
+	padding: 0;
 }
 
 .adjacent-entry-pagination {
