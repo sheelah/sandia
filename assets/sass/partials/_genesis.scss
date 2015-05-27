@@ -595,6 +595,7 @@ th {
 	}
 
 	.one-half,
+	.one-fourth.stacked,
 	.three-sixths,
 	.two-fourths {
 		width: 48.717948717948715%;
@@ -626,9 +627,28 @@ th {
 		width: 82.90598290598291%;
 	}
 
-	.first {
+	.first,
+	.one-fourth.stacked:nth-of-type(even) {
 		clear: both;
 		margin-left: 0;
+	}
+}
+
+@media only screen and (min-width: $screen-md) {
+	.one-fourth.stacked {
+		width: 23.076923076923077%;
+		margin-left: 2.564102564102564%;
+		&:first {
+			clear: both;
+			margin-left: 0;
+		}
+		&:nth-of-type(even) {
+			clear: none;
+			margin-left: 2.564102564102564%;
+		}
+		&:nth-of-type(even).first {
+			margin-left: 0;
+		}
 	}
 }
 
