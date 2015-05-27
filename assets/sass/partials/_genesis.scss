@@ -148,19 +148,25 @@ textarea:focus,
 
 ::-moz-selection,
 ::selection  {
-    background: $selection-color;
-    color: $white;
-    text-shadow: none;
+	background: $selection-color;
+	color: $white;
+	text-shadow: none;
 }
 
-a,
-a:visited {
-    color: $link-color;
+a {
+	color: $link-color;
 	text-decoration: none;
-}
-
-a:hover {
-    color: $link-hover-color;
+	&:visited {
+		color: $link-color;
+		text-decoration: none;
+	}
+	&:hover {
+		color: $link-hover-color;
+		outline: 0;
+	}
+	&:focus {
+		outline: thin dotted;
+	}
 }
 
 p {
@@ -1260,6 +1266,12 @@ p.entry-meta {
 .entry-footer .entry-meta {
 	border-top: 2px solid #f5f5f5;
 	padding-top: 1.5em;
+}
+
+.entry-footer .continue-reading {
+	margin: 0.2em 0 2em 0;
+	display: block;
+	text-decoration: underline;
 }
 
 .entry-categories,

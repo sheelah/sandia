@@ -169,9 +169,6 @@ function child_theme_setup() {
 	add_filter( 'script_loader_src', 'sandia_remove_script_version', 15, 1 );
 	add_filter( 'style_loader_src', 'sandia_remove_script_version', 15, 1 );
 
-	// Remove Read More Jump
-	add_filter( 'the_content_more_link', 'sandia_remove_more_jump_link' );
-
 	// Remove the Site Description
 	remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
@@ -193,6 +190,11 @@ function child_theme_setup() {
 	// Add the title to "read more" links
 	add_filter('get_the_content_more_link', 'sandia_read_more_link');
 	add_filter('the_content_more_link', 'sandia_read_more_link');
+	// Add a "continue reading" link to posts on archives and blog index pages
+	add_action( 'genesis_entry_footer', 'sandia_show_continue_reading_link', 6 );
+	// Add post title to comment navigation links
+	add_filter('genesis_prev_comments_link_text', 'sandia_prev_comments_link_text');
+	add_filter('genesis_next_comments_link_text', 'sandia_next_comments_link_text');
 
 	/****************************************
 	Theme Views
@@ -226,4 +228,3 @@ Misc Theme Functions
 
 // Filter Yoast SEO Metabox Priority
 add_filter( 'wpseo_metabox_prio', 'sandia_filter_yoast_seo_metabox' );
-

@@ -171,26 +171,52 @@ function sandia_remove_script_version( $src ){
 }
 
 /**
- * Remove Read More Jump
- */
-function sandia_remove_more_jump_link( $link ) {
-	$offset = strpos( $link, '#more-' );
-	if ($offset) {
-		$end = strpos( $link, '"',$offset );
-	}
-	if ($end) {
-		$link = substr_replace( $link, '', $offset, $end-$offset );
-	}
-	return $link;
-}
-
-/**
  * Define custom post type capabilities for use with Members
  */
 function sandia_add_post_type_caps() {
 	// sandia_add_capabilities( 'portfolio' );
 }
 
+/**
+ * Add Continue Reading links to posts on archives and blog index pages
+ */
+function sandia_show_continue_reading_link() {
+	if ( is_home() || is_archive() ) {
+		printf( '<a href="%s" rel="bookmark" class="continue-reading">%s<span class="screen-reader-text"> %s</span></a>', get_permalink(), __( 'Continue Reading', 'sandia'), get_the_title() );
+	}
+}
+
+/**
+ * Add a link first thing after the body element that will skip to the inner element.
+ */
+function sandia_add_skip_link() {
+	echo '<a class="skip-link screen-reader-text" href="#inner">' . __('Skip to content', 'sandia') . '</a>';
+}
+
+
+/**
+ * Adds the title to the "read more" link in archives
+ */
+function sandia_read_more_link( $link ) {
+	return '...<br /> <a href="'. get_permalink() .'" class="more-link">' .
+	       __( 'Read more', 'genesis' ) . '<span class="more-link-title screen-reader-text"> ' .
+	       __( 'about ', 'sandia' ) . get_the_title() .
+	       "</span></a>";
+}
+
+/**
+ * Adds the title to the "older comments" link in comment navigation
+ */
+function sandia_prev_comments_link_text( $link ) {
+	return sprintf( '&laquo; Older Comments <span class="screen-reader-text"> %s %s</span>', __( 'on', 'sandia'), get_the_title() );
+}
+
+/**
+ * Adds the title to the "newer comments" link in comment navigation
+ */
+function sandia_next_comments_link_text( $link ) {
+	return sprintf( 'Newer Comments &raquo;<span class="screen-reader-text"> %s %s</span>', __( 'on', 'sandia'), get_the_title() );
+}
 
 /****************************************
 Misc Theme Functions
@@ -213,26 +239,4 @@ function sandia_filter_yoast_seo_metabox() {
 function sandia_add_content_id( $attributes ) {
 	$attributes['id'] = "inner";
 	return $attributes;
-}
-
-
-/**
- * Add a link first thing after the body element that will skip to the inner element.
- */
-function sandia_add_skip_link() {
-	echo '<a class="skip-link screen-reader-text" href="#inner">' . __('Skip to content', 'sandia') . '</a>';
-}
-
-
-/**
- * Adds the title to the read more link in archives
- *
- * @since 1.0
- */
-
-function sandia_read_more_link( $link ) {
-    return '...<br /> <a href="'. get_permalink() .'" class="more-link">' .
-		__( 'Read more', 'genesis' ) . '<span class="more-link-title screen-reader-text"> ' .
-		__( 'about ', 'sandia' ) . get_the_title() .
-		"</span></a>";
 }
