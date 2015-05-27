@@ -126,6 +126,9 @@ function child_theme_setup() {
 	// Remove default link for images
 	add_action( 'admin_init', 'sandia_imagelink_setup', 10 );
 
+	//* Remove address and H1 from TinyMCE editor for better accessibility
+	add_filter( 'tiny_mce_before_init', 'sandia_customize_tinymce' );
+
 	// Define custom post type capabilities for use with Members
 	// add_action( 'admin_init', 'sandia_add_post_type_caps' );
 
@@ -223,3 +226,4 @@ Misc Theme Functions
 
 // Filter Yoast SEO Metabox Priority
 add_filter( 'wpseo_metabox_prio', 'sandia_filter_yoast_seo_metabox' );
+
