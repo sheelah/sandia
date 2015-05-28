@@ -26,9 +26,8 @@ var target = document.body;
 // create an observer instance
 var observer = new MutationObserver(mutationObjectCallback);
 function mutationObjectCallback(mutationRecordsList) {
-
     stickyFooter();
-};
+}
 
 // configuration of the observer:
 var config = { attributes: true, childList: true, characterData: true };
@@ -37,6 +36,10 @@ var config = { attributes: true, childList: true, characterData: true };
 //check for resize event
 window.onresize = function() {
     stickyFooter();
+}
+
+function getFooter(elementClass) {
+    return document.getElementsByClassName(elementClass)[0];
 }
 
 //lets get the marginTop for the <footer>
@@ -53,19 +56,13 @@ function getCSS(element, property) {
     }
 
     return css;
-
 }
 
 function stickyFooter() {
+    var footer = getFooter("site-footer");
+
     observer.disconnect();
     document.body.setAttribute("style","height:auto");
-    var footer = document.getElementsByClassName("site-footer");
-    if (footer.length > 0) {
-        footer = footer[0];
-    } else {
-        console.log("no footer found!");
-        return;
-    }
 
     if (footer.getAttribute("style") != null) {
         footer.removeAttribute("style");

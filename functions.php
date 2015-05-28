@@ -186,7 +186,7 @@ function child_theme_setup() {
 	// Add "inner" ID for skip nav link
 	add_filter( 'genesis_attr_site-inner', 'sandia_add_content_id', 15 );
 	// Add the skip nav link
-	add_action( 'get_header', 'sandia_add_skip_link', 1 );
+	add_action( 'genesis_before_header', 'sandia_add_skip_link', 5 );
 	// Add the title to "read more" links
 	add_filter('get_the_content_more_link', 'sandia_read_more_link');
 	add_filter('the_content_more_link', 'sandia_read_more_link');
