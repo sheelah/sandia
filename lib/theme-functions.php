@@ -5,6 +5,16 @@ Backend Functions
 *****************************************/
 
 /**
+ * Load the child theme textdomain for internationalization.
+ *
+ * Must be loaded before Genesis Framework /lib/init.php is included.
+ * Translations can be filed in the /languages/ directory.
+ */
+function sandia_i18n() {
+	load_child_theme_textdomain( 'sandia', get_template_directory() . '/languages' );
+}
+
+/**
  * Remove Genesis Theme Settings Metaboxes
  */
 function sandia_remove_genesis_metaboxes( $_genesis_theme_settings_pagehook ) {
@@ -217,6 +227,14 @@ function sandia_prev_comments_link_text( $link ) {
 function sandia_next_comments_link_text( $link ) {
 	return sprintf( 'Newer Comments &raquo;<span class="screen-reader-text"> %s %s</span>', __( 'on', 'sandia'), get_the_title() );
 }
+
+/**
+ * Bind JS handlers to make customizer preview reload changes asynchronously
+ */
+function sandia_customize_preview_js() {
+	wp_enqueue_script( 'sandia_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150325', true );
+}
+
 
 /****************************************
 Misc Theme Functions

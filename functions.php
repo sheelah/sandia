@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * Theme internationalization
+ */
+
+add_action( 'after_setup_theme', 'sandia_i18n' );
+
+/**
  * Theme Setup
  * @since 1.0.0
  *
@@ -182,7 +188,13 @@ function child_theme_setup() {
 	// Set favicon
 	add_filter( 'genesis_pre_load_favicon', 'sandia_favicon_filter' );
 
-	// Accessibility tweaks
+	// Load customizer changes asynchronously
+	add_action( 'customize_preview_init', 'sandia_customize_preview_js' );
+
+	/****************************************
+	Accessibility
+	 *****************************************/
+
 	// Add "inner" ID for skip nav link
 	add_filter( 'genesis_attr_site-inner', 'sandia_add_content_id', 15 );
 	// Add the skip nav link
@@ -195,6 +207,7 @@ function child_theme_setup() {
 	// Add post title to comment navigation links
 	add_filter('genesis_prev_comments_link_text', 'sandia_prev_comments_link_text');
 	add_filter('genesis_next_comments_link_text', 'sandia_next_comments_link_text');
+
 
 	/****************************************
 	Theme Views
@@ -214,13 +227,6 @@ function child_theme_setup() {
 
 }
 
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
-function sandia_customize_preview_js() {
-    wp_enqueue_script( 'sandia_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150325', true );
-}
-add_action( 'customize_preview_init', 'sandia_customize_preview_js' );
 
 /****************************************
 Misc Theme Functions
