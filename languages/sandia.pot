@@ -1,0 +1,397 @@
+# Copyright (C) 2015 Sheelah Brennan
+# This file is distributed under the GNU General Public License v2.0.
+msgid ""
+msgstr ""
+"Project-Id-Version: sandia 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/theme/style\n"
+"POT-Creation-Date: 2015-05-28 20:42:18+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+
+#: 404.php:21
+msgid "Page Not Found"
+msgstr ""
+
+#: 404.php:24
+msgid ""
+"The page you are looking for no longer exists. Perhaps you can return back "
+"to the site's <a href=\"%s\">homepage</a> and see if you can find what you "
+"are looking for. Or, you can try finding it by using the search form below."
+msgstr ""
+
+#: 404.php:29
+msgid "Pages:"
+msgstr ""
+
+#: 404.php:34
+msgid "Categories:"
+msgstr ""
+
+#: 404.php:39
+msgid "Authors:"
+msgstr ""
+
+#: 404.php:44
+msgid "Monthly:"
+msgstr ""
+
+#: 404.php:49
+msgid "Recent Posts:"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:196 lib/theme-require-plugins.php:43
+msgid "Install Required Plugins"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:197 lib/theme-require-plugins.php:44
+msgid "Install Plugins"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:198 lib/theme-require-plugins.php:45
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:199
+msgid "Something went wrong."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:200 lib/theme-require-plugins.php:47
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:201 lib/theme-require-plugins.php:48
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:202 lib/theme-require-plugins.php:49
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin installed."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:203 lib/theme-require-plugins.php:50
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:204 lib/theme-require-plugins.php:51
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:205 lib/theme-require-plugins.php:52
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin activated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins activated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:206 lib/theme-require-plugins.php:53
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:207 lib/theme-require-plugins.php:54
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %s plugin. "
+"Contact the administrator of this site for help on getting the plugin "
+"updated."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:208 lib/theme-require-plugins.php:55
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:209 lib/theme-require-plugins.php:56
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: lib/class-tgm-plugin-activation.php:210 lib/theme-require-plugins.php:57
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:211
+msgid "Return to the dashboard"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:212
+#: lib/class-tgm-plugin-activation.php:1951 lib/theme-require-plugins.php:58
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:213
+#: lib/class-tgm-plugin-activation.php:1638
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:214
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:215
+msgid "Dismiss this notice"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:544
+#: lib/class-tgm-plugin-activation.php:2168
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1174
+msgid "Private Repository"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1177
+msgid "Pre-Packaged"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1182
+msgid "WordPress Repository"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1185
+msgid "Required"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1185
+msgid "Recommended"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1188
+msgid "Not Installed"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1190
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1290
+#: lib/class-tgm-plugin-activation.php:1398
+msgid "Install"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1312
+#: lib/class-tgm-plugin-activation.php:1399
+msgid "Activate"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1361
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1377
+msgid "Plugin"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1378
+msgid "Source"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1379
+msgid "Type"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1380
+msgid "Status"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1508
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1616
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1934
+msgid "Install package not available."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1935
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1936
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1937
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1938
+msgid "Plugin install failed."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1939
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:1950
+msgid "Plugin activation failed."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2064
+msgid ""
+"The installation and activation process is starting. This process may take "
+"a while on some hosts, so please be patient."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2065
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2065
+#: lib/class-tgm-plugin-activation.php:2074
+msgid "Show Details"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2065
+#: lib/class-tgm-plugin-activation.php:2074
+msgid "Hide Details"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2066
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2067
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2071
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2072
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2073
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2074
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2075
+msgid "All installations have been completed."
+msgstr ""
+
+#: lib/class-tgm-plugin-activation.php:2076
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: lib/theme-functions.php:39
+msgid "Layout Settings"
+msgstr ""
+
+#: lib/theme-functions.php:195
+msgid "Continue Reading"
+msgstr ""
+
+#: lib/theme-functions.php:203
+msgid "Skip to content"
+msgstr ""
+
+#: lib/theme-functions.php:212
+msgid "Read more"
+msgstr ""
+
+#: lib/theme-functions.php:213
+msgid "about "
+msgstr ""
+
+#: lib/theme-functions.php:221
+msgid "&laquo; Older Comments"
+msgstr ""
+
+#: lib/theme-functions.php:221 lib/theme-functions.php:228
+msgid "on"
+msgstr ""
+
+#: lib/theme-functions.php:228
+msgid "Newer Comments &raquo;"
+msgstr ""
+
+#: lib/theme-require-plugins.php:46
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: lib/theme-require-plugins.php:59
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "sandia"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://www.THEME.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"WordPress Starter Theme for use as Child Theme of the Genesis Framework for "
+"building custom themes."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Sheelah Brennan"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.sheelahb.com"
+msgstr ""

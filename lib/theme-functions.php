@@ -36,7 +36,7 @@ function sandia_add_inpost_layout_box() {
 		return;
 	foreach ( (array) get_post_types( array( 'public' => true ) ) as $type ) {
 		if ( post_type_supports( $type, 'genesis-layouts' ) )
-			add_meta_box( 'genesis_inpost_layout_box', __( 'Layout Settings', 'genesis' ), 'genesis_inpost_layout_box', $type, 'normal', 'low' );
+			add_meta_box( 'genesis_inpost_layout_box', __( 'Layout Settings', 'genesis', 'sandia' ), 'genesis_inpost_layout_box', $type, 'normal', 'low' );
 	}
 }
 
@@ -209,7 +209,7 @@ function sandia_add_skip_link() {
  */
 function sandia_read_more_link( $link ) {
 	return '...<br /> <a href="'. get_permalink() .'" class="more-link">' .
-	       __( 'Read more', 'genesis' ) . '<span class="more-link-title screen-reader-text"> ' .
+	       __( 'Read more', 'genesis', 'sandia' ) . '<span class="more-link-title screen-reader-text"> ' .
 	       __( 'about ', 'sandia' ) . get_the_title() .
 	       "</span></a>";
 }
@@ -218,14 +218,14 @@ function sandia_read_more_link( $link ) {
  * Adds the title to the "older comments" link in comment navigation
  */
 function sandia_prev_comments_link_text( $link ) {
-	return sprintf( '&laquo; Older Comments <span class="screen-reader-text"> %s %s</span>', __( 'on', 'sandia'), get_the_title() );
+	return sprintf( '%s<span class="screen-reader-text"> %s %s</span>', __( '&laquo; Older Comments', 'sandia' ) , __( 'on', 'sandia'), get_the_title() );
 }
 
 /**
  * Adds the title to the "newer comments" link in comment navigation
  */
 function sandia_next_comments_link_text( $link ) {
-	return sprintf( 'Newer Comments &raquo;<span class="screen-reader-text"> %s %s</span>', __( 'on', 'sandia'), get_the_title() );
+	return sprintf( '%s<span class="screen-reader-text"> %s %s</span>', __( 'Newer Comments &raquo;', 'sandia' ), __( 'on', 'sandia'), get_the_title() );
 }
 
 /**
