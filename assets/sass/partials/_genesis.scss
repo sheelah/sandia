@@ -126,8 +126,8 @@ body {
 }
 
 body {
-    color: $body-text-color;
-    background-color: $white;
+	color: $body-text-color;
+	background-color: $white;
 	font-family: Lato, sans-serif;
 	font-weight: 300;
 	line-height: 1.625;
@@ -1124,14 +1124,14 @@ img.alignright,
 	@media only screen and (min-width: $screen-sm) {
 		content: "";
 		color: $top-nav-carat-color;
-        display: inline-block;
+		display: inline-block;
 		vertical-align: middle;
-        width: 0;
-        height: 0;
-        border-top: 4px solid;
-        border-bottom: none;
-        border-right: 4px solid transparent;
-        border-left: 4px solid transparent;
+		width: 0;
+		height: 0;
+		border-top: 4px solid;
+		border-bottom: none;
+		border-right: 4px solid transparent;
+		border-left: 4px solid transparent;
 		margin-left: 0.4em;
 	}
 }

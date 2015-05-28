@@ -148,20 +148,20 @@ nav {
 
 // Hide nav buttons on wider widths and show regular nav instead
 @media only screen and (min-width: $screen-sm) {
-    .sub-menu-toggle,
-    .menu-toggle {
-        display: none;
-    }
-    nav {
-        display: block !important;
-    }
+	.sub-menu-toggle,
+	.menu-toggle {
+		display: none;
+	}
+	nav {
+		display: block !important;
+	}
 	// Accessibility fixes for regular nav
 	.menu .menu-item:focus {
-    	position: static;
+		position: static;
 	}
 	.menu .menu-item > a:focus + ul.sub-menu,
 	.menu .menu-item.genwpacc-hover > ul.sub-menu {
-    	left: auto;
-	    opacity: 1;
+		left: auto;
+		opacity: 1;
 	}
 }

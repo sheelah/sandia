@@ -16,8 +16,8 @@
  */
 
 window.onload = function() {
-    stickyFooter();
-    observer.observe(target, config);
+	stickyFooter();
+	observer.observe(target, config);
 };
 
 //check for changes to the DOM
@@ -26,7 +26,7 @@ var target = document.body;
 // create an observer instance
 var observer = new MutationObserver(mutationObjectCallback);
 function mutationObjectCallback(mutationRecordsList) {
-    stickyFooter();
+	stickyFooter();
 }
 
 // configuration of the observer:
@@ -35,59 +35,59 @@ var config = { attributes: true, childList: true, characterData: true };
 
 //check for resize event
 window.onresize = function() {
-    stickyFooter();
+	stickyFooter();
 }
 
 function getFooter(elementClass) {
-    return document.getElementsByClassName(elementClass)[0];
+	return document.getElementsByClassName(elementClass)[0];
 }
 
 //lets get the marginTop for the <footer>
 function getCSS(element, property) {
 
-    var css = null;
+	var css = null;
 
-    if (element.currentStyle) {
-        css = element.currentStyle[property];
+	if (element.currentStyle) {
+		css = element.currentStyle[property];
 
-    } else if (window.getComputedStyle) {
-        css = document.defaultView.getComputedStyle(element, null).
-            getPropertyValue(property);
-    }
+	} else if (window.getComputedStyle) {
+		css = document.defaultView.getComputedStyle(element, null).
+			getPropertyValue(property);
+	}
 
-    return css;
+	return css;
 }
 
 function stickyFooter() {
-    var footer = getFooter("site-footer");
+	var footer = getFooter("site-footer");
 
-    observer.disconnect();
-    document.body.setAttribute("style","height:auto");
+	observer.disconnect();
+	document.body.setAttribute("style","height:auto");
 
-    if (footer.getAttribute("style") != null) {
-        footer.removeAttribute("style");
-    }
+	if (footer.getAttribute("style") != null) {
+		footer.removeAttribute("style");
+	}
 
-    if (window.innerHeight != document.body.offsetHeight) {
-        var offset = window.innerHeight - document.body.offsetHeight;
-        var current = getCSS(footer, "margin-top");
+	if (window.innerHeight != document.body.offsetHeight) {
+		var offset = window.innerHeight - document.body.offsetHeight;
+		var current = getCSS(footer, "margin-top");
 
-        if (isNaN(current) == true) {
-            footer.setAttribute("style","margin-top:0px;");
-            current = 0;
-        } else {
-            current = parseInt(current);
-        }
+		if (isNaN(current) == true) {
+			footer.setAttribute("style","margin-top:0px;");
+			current = 0;
+		} else {
+			current = parseInt(current);
+		}
 
-        if (current+offset > parseInt(getCSS(footer, "margin-top"))) {
-            footer.setAttribute("style","margin-top:"+(current+offset)+"px;");
-        }
-    }
+		if (current+offset > parseInt(getCSS(footer, "margin-top"))) {
+			footer.setAttribute("style","margin-top:"+(current+offset)+"px;");
+		}
+	}
 
-    document.body.setAttribute("style","height:100%");
+	document.body.setAttribute("style","height:100%");
 
-    //reconnect
-    observer.observe(target, config);
+	//reconnect
+	observer.observe(target, config);
 }
 
 /*
