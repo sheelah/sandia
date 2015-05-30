@@ -516,27 +516,29 @@ th {
 @media only screen and (min-width: $screen-md) {
 	.content {
 		float: right;
-		width: 60%;
+		width: 65%;
 	}
 
 	.content-sidebar .content {
 		float: left;
-		width: 60%;
+		width: 65%;
 	}
 
 	.content-sidebar .sidebar {
 		float: right;
-		width: 36%;
+		width: 31%;
+		margin-left: 4%;
 	}
 
 	.sidebar-content .content {
 		float: right;
-		width: 60%;
+		width: 65%;
 	}
 
 	.sidebar-content .sidebar {
 		float: left;
-		width: 36%;
+		width: 31%;
+		margin-right: 4%;
 	}
 
 	.full-width-content .content {
