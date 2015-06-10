@@ -4,7 +4,7 @@
 /* Standard Navigation
 --------------------------------------------- */
 
-nav {
+.nav-header {
 	clear: both;
 }
 
@@ -80,7 +80,7 @@ nav {
 		margin-top: 5px;
 	}
 
-	nav {
+	.nav-header {
 		display: none;
 		overflow: hidden;
 		width: 100%;
@@ -152,7 +152,7 @@ nav {
 	.menu-toggle {
 		display: none;
 	}
-	nav {
+	.nav-header {
 		display: block !important;
 	}
 	// Accessibility fixes for regular nav
