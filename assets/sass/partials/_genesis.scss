@@ -985,10 +985,6 @@ img.alignright,
 	}
 }
 
-.header-full-width .title-area {
-	width: 100%;
-}
-
 .site-title {
 	font-size: rem-calc(32);
 	font-weight: 400;
@@ -1035,14 +1031,6 @@ img.alignright,
 
 .site-header .widget-area {
 	width: 100%
-}
-
-@media only screen and (min-width: $screen-sm) {
-	.site-header .widget-area {
-		float: right;
-		text-align: right;
-		width: 70%;
-	}
 }
 
 
@@ -1200,15 +1188,21 @@ img.alignright,
 --------------------------------------------- */
 
 .nav-primary {
-	background-color: $dark-gray;
+	background-color: $white;
+	width: 100%;
+	@media only screen and (min-width: $screen-sm) {
+		float: right;
+		text-align: right;	
+		width: 70%;
+	}
 }
 
 .nav-primary .genesis-nav-menu a {
-	color: $white;
+	color: $link-color;
 }
 
 .nav-primary .genesis-nav-menu .sub-menu a {
-	color: $dark-gray;
+	color: $link-color;
 }
 
 .nav-primary .genesis-nav-menu a:hover,

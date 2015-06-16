@@ -63,11 +63,6 @@ function child_theme_setup() {
 		'footer'
 	) );
 
-	// Unregister Secondary Nav Menu
-	add_theme_support( 'genesis-menus', array(
-		'primary' => 'Primary Navigation Menu'
-	) );
-
 	// Sidebars
 	unregister_sidebar( 'sidebar-alt' );
 	//add_theme_support( 'genesis-footer-widgets', 4 );
@@ -180,6 +175,10 @@ function child_theme_setup() {
 
 	//Remove the Site Title
 	//remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
+	
+	// Move the primary navigation menu
+	remove_action( 'genesis_after_header', 'genesis_do_nav' );
+	add_action( 'genesis_header', 'genesis_do_nav', 11 );
 
 	// Removes Genesis SEO options since Yoast SEO is used instead
 	remove_action( 'admin_menu', 'genesis_add_inpost_seo_box' );

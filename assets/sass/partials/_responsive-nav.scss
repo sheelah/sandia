@@ -4,10 +4,6 @@
 /* Standard Navigation
 --------------------------------------------- */
 
-.nav-header {
-	clear: both;
-}
-
 /* Navigation toggles - Mobile
 --------------------------------------------- */
 
@@ -80,7 +76,7 @@
 		margin-top: 5px;
 	}
 
-	.nav-header {
+	.nav-primary {
 		display: none;
 		overflow: hidden;
 		width: 100%;
@@ -152,7 +148,7 @@
 	.menu-toggle {
 		display: none;
 	}
-	.nav-header {
+	.nav-primary {
 		display: block !important;
 	}
 	// Accessibility fixes for regular nav
