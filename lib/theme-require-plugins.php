@@ -3,7 +3,7 @@
 /**
  * Register the required plugins for this theme.
  */
-function sheelahb_register_required_plugins() {
+function sandia_register_required_plugins() {
 
 	$plugins = array(
 
