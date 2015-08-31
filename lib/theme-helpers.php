@@ -28,7 +28,7 @@ function sandia_add_capabilities( $posttype ) {
  * Shortcode to display current year and company name for copyright
  */
 function sandia_shortcode_copyright() {
-	$copyright = '&copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' );
+	$copyright = '&copy; ' . date( 'Y' ) . ' ' . esc_html( get_bloginfo( 'name' ) );
 	return $copyright;
 }
 add_shortcode( 'copyright', 'sandia_shortcode_copyright' );

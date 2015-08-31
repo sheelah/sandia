@@ -21,7 +21,7 @@ function genesis_404() {
 		printf( '<h1 class="entry-title">%s</h1>', __( 'Page Not Found', 'sandia' ) );
 		echo '<div class="entry-content">';
 
-		?> <p><?php printf( __( 'The page you are looking for no longer exists. Perhaps you can return back to the site\'s <a href="%s">homepage</a> and see if you can find what you are looking for. Or, you can try finding it by using the search form below.', 'genesis', 'sandia' ), home_url() ); ?></p><?php
+		?> <p><?php printf( __( 'The page you are looking for no longer exists. Perhaps you can return back to the site\'s <a href="%s">homepage</a> and see if you can find what you are looking for. Or, you can try finding it by using the search form below.', 'genesis', 'sandia' ), esc_url( home_url( '/' ) ) ); ?></p><?php
 
 				echo '<p>' . get_search_form() . '</p>';
 		?>
