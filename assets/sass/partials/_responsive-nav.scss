@@ -151,7 +151,7 @@
 	.nav-primary {
 		display: block !important;
 	}
-	// Accessibility fixes for regular nav
+	// Accessibility fix for dropdown nav using Genesis accessibility solution
 	.menu .menu-item:focus {
 		position: static;
 	}

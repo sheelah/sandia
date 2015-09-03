@@ -63,6 +63,10 @@ function child_theme_setup() {
 		'footer'
 	) );
 
+	add_theme_support( 'genesis-accessibility', array(
+		'headings', 'search-form', 'skip-links', 'rems' )
+	);
+
 	// Sidebars
 	unregister_sidebar( 'sidebar-alt' );
 	//add_theme_support( 'genesis-footer-widgets', 4 );
@@ -190,14 +194,13 @@ function child_theme_setup() {
 	// Load customizer changes asynchronously
 	add_action( 'customize_preview_init', 'sandia_customize_preview_js' );
 
+	// Change 404 page title
+	add_filter( 'genesis_404_entry_title', 'sandia_404_entry_title' );
+
 	/****************************************
 	Accessibility
 	 *****************************************/
 
-	// Add "inner" ID for skip nav link
-	add_filter( 'genesis_attr_site-inner', 'sandia_add_content_id', 15 );
-	// Add the skip nav link
-	add_action( 'genesis_before_header', 'sandia_add_skip_link', 5 );
 	// Add the title to "read more" links
 	add_filter('get_the_content_more_link', 'sandia_read_more_link');
 	add_filter('the_content_more_link', 'sandia_read_more_link');

@@ -197,14 +197,6 @@ function sandia_show_continue_reading_link() {
 }
 
 /**
- * Add a link first thing after the body element that will skip to the inner element.
- */
-function sandia_add_skip_link() {
-	echo '<a class="skip-link screen-reader-text" href="#inner">' . __('Skip to content', 'sandia') . '</a>';
-}
-
-
-/**
  * Adds the title to the "read more" link in archives
  */
 function sandia_read_more_link( $link ) {
@@ -235,6 +227,14 @@ function sandia_customize_preview_js() {
 	wp_enqueue_script( 'sandia_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20150325', true );
 }
 
+/**
+ * Change 404 page title
+ */
+function sandia_404_entry_title() {
+	return __( 'Page Not Found', 'sandia' );
+
+}
+
 
 /****************************************
 Misc Theme Functions
@@ -245,16 +245,4 @@ Misc Theme Functions
  */
 function sandia_filter_yoast_seo_metabox() {
 	return 'low';
-}
-
-
-/**
- * Adds "inner" id to the site-inner content/sidebar wrap.
- * Using inner, since Genesis uses this id when HTML5 is disabled.
- * @param  array $attributes Array of element attributes
- * @return array             Same array of element attributes with the id added
-*/
-function sandia_add_content_id( $attributes ) {
-	$attributes['id'] = "inner";
-	return $attributes;
 }

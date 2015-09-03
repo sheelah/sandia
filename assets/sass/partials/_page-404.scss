@@ -1,11 +1,17 @@
 /* ==========================================================================
-   Home Page Template
+   404 Page Template
    ========================================================================== */
 
 body.error404 {
-	li {
+	.entry-content li {
 		margin-bottom: 0.3em;
 		padding-bottom: 0.3em;
 		list-style-type: none;
+	}
+	input[type="submit"] {
+		display: none;
+	}
+	.search-form {
+		margin-bottom: 2em;
 	}
 }
