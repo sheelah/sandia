@@ -170,6 +170,9 @@ function child_theme_setup() {
 	// Enqueue Web Fonts
 	add_action( 'wp_enqueue_scripts', 'sandia_web_fonts' );
 
+	// Dequeue skip-links JS from Genesis since this theme includes it in its own JS
+	add_action('wp_print_scripts', 'sandia_dequeue_skip_links' );
+
 	// Remove Query Strings From Static Resources
 	add_filter( 'script_loader_src', 'sandia_remove_script_version', 15, 1 );
 	add_filter( 'style_loader_src', 'sandia_remove_script_version', 15, 1 );
@@ -179,7 +182,7 @@ function child_theme_setup() {
 
 	//Remove the Site Title
 	//remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
-	
+
 	// Move the primary navigation menu
 	remove_action( 'genesis_after_header', 'genesis_do_nav' );
 	add_action( 'genesis_header', 'genesis_do_nav', 11 );

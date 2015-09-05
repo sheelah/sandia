@@ -173,6 +173,13 @@ function sandia_scripts() {
 }
 
 /**
+ * Dequeue Genesis skip links JS
+ */
+function sandia_dequeue_skip_links() {
+	wp_dequeue_script( 'skip-links' );
+}
+
+/**
  * Remove Query Strings From Static Resources
  */
 function sandia_remove_script_version( $src ){
