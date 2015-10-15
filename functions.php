@@ -64,7 +64,7 @@ function child_theme_setup() {
 	) );
 
 	add_theme_support( 'genesis-accessibility', array(
-		'headings', 'search-form', 'skip-links', 'rems' )
+		'headings', 'search-form', 'skip-links', 'rems', '404-page' )
 	);
 
 	// Sidebars
