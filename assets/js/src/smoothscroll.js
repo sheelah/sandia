@@ -6,7 +6,7 @@
   /* ADDED: make targets focusable */
   $('target[id]').attr('tabindex', '-1');
 
-  $('a[href*=#]:not([href=#])').click(function() {
+  $('a[href*="#"]:not([href="#"])').click(function() {
     var $linkElem = $(this);
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
       var target = $(this.hash);
