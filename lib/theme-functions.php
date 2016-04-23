@@ -115,6 +115,20 @@ Frontend
 *****************************************/
 
 /**
+ * Prefetch DNS for external domains
+ * Domains generated from http://www.webpagetest.org
+ */
+function sandia_fetch_dns() {
+    $hrefs = array(
+        '//www.google-analytics.com',
+        '//ajax.googleapis.com',
+    );
+    foreach( $hrefs as $href ) {
+        echo '<link rel="dns-prefetch" href="' . $href . '">' . "\n";
+    }
+}
+
+/**
  * Load apple touch icon in header
  */
 function sandia_apple_touch_icon() {

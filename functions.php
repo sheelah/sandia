@@ -154,6 +154,9 @@ function child_theme_setup() {
 	// Add viewport meta tag for mobile browsers
 	add_theme_support( 'genesis-responsive-viewport' );
 
+	// Add DNS prefetching for external domains
+	add_action( 'wp_head', 'sandia_fetch_dns', 1 );
+
 	// Load Apple touch icon in header
 	add_action( 'wp_head', 'sandia_apple_touch_icon', 9 );
 
