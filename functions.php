@@ -114,6 +114,9 @@ function child_theme_setup() {
 	// Add support for custom background
 	add_theme_support( 'custom-background' );
 
+	//* Add support for after entry widget
+	add_theme_support( 'genesis-after-entry-widget-area' );
+
 	// Add support for SVG in media uploader
 	add_filter( 'upload_mimes', 'sandia_enable_svg_upload' );
 	add_filter( 'genesis_get_image', 'sandia_resize_svg' );
@@ -144,11 +147,11 @@ function child_theme_setup() {
 
 	// Add HTML5 markup structure
 	add_theme_support( 'html5', array(
+		'caption',
+		'comment-form',
 		'comment-list',
 		'search-form',
-		'comment-form',
 		'gallery',
-		'caption',
 	) );
 
 	// Add viewport meta tag for mobile browsers
@@ -202,6 +205,13 @@ function child_theme_setup() {
 
 	// Change 404 page title
 	add_filter( 'genesis_404_entry_title', 'sandia_404_entry_title' );
+
+	// Modify size of the Gravatar in the author box
+	add_filter( 'genesis_author_box_gravatar_size', 'sandia_author_box_gravatar' );
+
+	// Modify size of the Gravatar in the entry comments
+	add_filter( 'genesis_comment_list_args', 'sandia_comments_gravatar' );
+
 
 	/****************************************
 	Accessibility

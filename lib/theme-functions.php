@@ -253,9 +253,22 @@ function sandia_customize_preview_js() {
  */
 function sandia_404_entry_title() {
 	return __( 'Page Not Found', 'sandia' );
-
 }
 
+/**
+ * Change size of the Gravatar in the author box
+ */
+function sandia_author_box_gravatar( $size ) {
+	return 90;
+}
+
+/**
+ * Change size of the Gravatar in entry comments
+ */
+function sandia_comments_gravatar( $args ) {
+	$args['avatar_size'] = 60;
+	return $args;
+}
 
 /****************************************
 Misc Theme Functions

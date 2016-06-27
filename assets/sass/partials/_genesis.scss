@@ -713,6 +713,7 @@ th {
 --------------------------------------------- */
 
 // No padding for small widths
+.after-entry,
 .archive-description,
 .author-box,
 .comment-respond,
@@ -733,6 +734,7 @@ th {
 	margin-bottom: 1.2em;
 }
 
+.after-entry,
 .archive-description,
 .author-box {
 	background-color: $white;
